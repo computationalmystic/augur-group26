@@ -33,9 +33,10 @@
 ## Model Files 
 	Built from augur, using a vagrant instance. 
 ## Controller Files
-		Added: Linecard.vue
+		Added: frontend/app/component/LinesCard.vue
 		Edited: frontend/app/router/router.js
 				frontend/app/assets/augurAPI.js
+				frontend/app/component/tabs.vue
 ## Languages
     1. javascript
     2. html
@@ -44,5 +45,5 @@
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTY2MDYwMzZdfQ==
+eyJoaXN0b3J5IjpbNzI0MDQ5NjE5LC0xOTk2NjA2MDM2XX0=
 -->
