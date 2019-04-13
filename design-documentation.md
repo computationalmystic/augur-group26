@@ -17,7 +17,7 @@
 
 ## Database Design
 
-### ERD
+### ERD![enter image description here](https://lh3.googleusercontent.com/OlLjII_RTg9a4LC0kpiRXnj3TRE0u-jJcHZlOulMEI5D5n-wcYeK7w4m9kXY_b83FdqU6At7jfPE)
 
 
 ~We have no provided DDL code because we built our program using the existing augur database schematic in mind. 
@@ -38,5 +38,5 @@
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5MTc2MTczMF19
+eyJoaXN0b3J5IjpbMTE5MjMxNzU1MV19
 -->
