@@ -34,8 +34,8 @@
 	Built from augur, using a vagrant instance. 
 ## Controller Files
 		Added: Linecard.vue
-		Edited: router/router.js
-				augurAPI.
+		Edited: frontend/app/router/router.js
+				frontend/app/assets/augurAPI.js
 ## Languages
     1. javascript
     2. html
@@ -44,5 +44,5 @@
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzUxNzMwMzVdfQ==
+eyJoaXN0b3J5IjpbLTE5OTY2MDYwMzZdfQ==
 -->
