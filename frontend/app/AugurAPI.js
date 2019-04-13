@@ -108,9 +108,9 @@ export default class AugurAPI {
       return new Promise((resolve, reject) => {
         if (Array.isArray(data)) {
           data.forEach(response => {
-            if (response.status === 200 && reverseMap[response.path]) {
+            if (response.status === 200) {
               processedData[reverseMap[response.path].owner][reverseMap[response.path].name] = JSON.parse(response.response)
-            } else if (reverseMap[response.path]){
+            } else {
               processedData[reverseMap[response.path].owner][reverseMap[response.path].name] = null
             }
           })
@@ -139,7 +139,8 @@ export default class AugurAPI {
         let splitURL = repo.gitURL.split('/')
         repo.owner = splitURL[1]
         repo.name = splitURL[2].split('.')[0]
-      } else {
+      }
+      else {
         let splitURL = repo.gitURL.split('/')
         repo.owner = splitURL[0]
         repo.name = splitURL[1]
@@ -260,6 +261,7 @@ export default class AugurAPI {
       Timeseries(repo, 'commitComments', 'commits/comments')
       Endpoint(repo, 'committerLocations', 'committer_locations')
       Timeseries(repo, 'totalCommitters', 'total_committers')
+      Timeseries(repo, 'linesChangedByWeek', 'lines-changed-by-week')
 
       // Issue Related
       Timeseries(repo, 'issueActivity', 'issues/activity')
@@ -284,6 +286,7 @@ export default class AugurAPI {
       Timeseries(repo, 'majorTags', 'tags/major')
       Timeseries(repo, 'newWatchers', 'new_watchers')
       Timeseries(repo, 'tags', 'tags')
+        
     }
 
     if (repo.gitURL) {
@@ -294,7 +297,8 @@ export default class AugurAPI {
       GitEndpoint(repo, 'cdRgTpRankedCommits', 'cd_rg_tp_ranked_commits'),
       GitEndpoint(repo, 'cdRgNewrepRankedLoc', 'cd_rg_newrep_ranked_loc'),
       GitEndpoint(repo, 'cdRgNewrepRankedCommits', 'cd_rg_newrep_ranked_commits')
-      GitEndpoint(repo, 'facadeProject', 'facade_project')
+
+
     }
 
     return repo

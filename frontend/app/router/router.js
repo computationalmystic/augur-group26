@@ -17,19 +17,17 @@ import MainControls from '../components/MainControls.vue'
 import AugurHeader from '../components/AugurHeader.vue'
 import Tabs from '../components/Tabs.vue'
 import TableView from '../components/TableView.vue'
-import ProjectDropdown from '../components/ProjectDropdown.vue'
+import LinesCard from '../components/LinesCard.vue'
 
 let routes = [
-      {path: '/', component: AugurCards,
+        {path: '/', component: AugurCards,
         children: [
           {
             path: "",
             name: "reposcard",
             components: {
               header: AugurHeader,
-              // tabs: ProjectDropdown,
-              content: DownloadedReposCard,
-              // controls: OverviewCard
+              content: DownloadedReposCard
             }
           },
         ]
@@ -110,6 +108,7 @@ let routes = [
               content: GitCard
             }
           },
+        
           {
             path: "overview",
             name: "overview",
@@ -118,6 +117,16 @@ let routes = [
               tabs: Tabs,
               controls: MainControls,
               content: OverviewCard
+            }
+          },
+              {
+            path: "lines",
+            name: "lines",
+            components: {
+              header: AugurHeader,
+              tabs: Tabs,
+              controls: MainControls,
+              content: LinesCard
             }
           },
         ]
@@ -296,8 +305,6 @@ window.AugurAPI.getDownloadedGitRepos().then((data) => {
 //     component: () => require(`@/components/${route.component}.vue`)
 //   }
 // })
-
-
 
 
 export default new Router({
