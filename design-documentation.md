@@ -36,3 +36,7 @@
     3. python
 	    We have nobody with prior python experience, 
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTI5MTc2MTczMF19
+-->
