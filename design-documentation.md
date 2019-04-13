@@ -1,4 +1,3 @@
-
 ## Deployment Environment
 [http://ec2-18-219-137-121.us-east-2.compute.amazonaws.com:3333/](http://ec2-18-219-137-121.us-east-2.compute.amazonaws.com:3333/)
 ## Functional Requirements
@@ -37,7 +36,3 @@
     3. python
 	    We have nobody with prior python experience, 
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
-
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTc0MTUzNDQsLTMwNTUyXX0=
--->
