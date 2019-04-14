@@ -8,66 +8,39 @@
       </h2>
     </div>
       <div class="row">
-        <div class="col col-6" style="padding-right: 35px">
+        <div class="col col-12" style="padding-right: 35px">
           <grouped-bar-chart source="cdRgTpRankedCommits"
-          title="Top Repos in 2018 by Commits with Baseline Averages - Sorted"
-          field="commit"></grouped-bar-chart>
+          title="TEST: Top Repos in 2018 by Commits with Baseline Averages - Sorted"
+          field="lines"></grouped-bar-chart>
         </div>
         <div class="col col-6" style="padding-right: 35px">
           <grouped-bar-chart source="cdRgTpRankedLoc"
           title="Top Repos in 2018 by Net LoC with Baseline Averages - Sorted"
           field="loc"></grouped-bar-chart>
         </div>
-
+    </div>
+    
+    <div class="row">
         <div class="col col-12" style="padding-right: 35px">
           <time-interval-bar-chart source="cdRepTpIntervalLocCommits"
           title="Contributions in 2018 by Monthly Intervals with Baseline Averages"
           field="loc"></time-interval-bar-chart>
         </div>
-
-        <!-- <div class="col col-6" style="padding-right: 35px">
-          <directional-time-chart source="cdRepTpIntervalLocCommits"
-          title="Contributions Over Time in 2018"
-          field="loc"></directional-time-chart>
-        </div> -->
-
-        <div class="col col-6" style="padding-right: 35px">
-          <grouped-bar-chart source="cdRgNewrepRankedCommits"
-          title="Top New Repos in 2018 by Commits with Baseline Averages - Sorted"
-          field="commit"></grouped-bar-chart>
-        </div>
-        <div class="col col-6" style="padding-right: 35px">
-          <grouped-bar-chart source="cdRgNewrepRankedLoc"
-          title="Top New Repos in 2018 by Net LoC with Baseline Averages - Sorted"
-          field="loc"></grouped-bar-chart>
-        </div>
-
+    </div>
+    
+    <div class="row">
         <div class="col col-12">
-          <tick-chart></tick-chart>
+        <dynamic-line-chart source="lines_changed_by_week"
+              title="new"
+              :data="values['lines_changed_by_week']"
+        </dynamic-line-chart>
         </div>
-      </div>
-      
-      <div class="row" style="transform: translateY(-50px) !important">
-        <div class="col col-6" style="padding-right: 35px">
-          <normalized-stacked-bar-chart title="Lines of code added by the top 10 authors as Percentages - By Time Period"></normalized-stacked-bar-chart>
-        </div>
-        <div class="col col-6" style="padding-left: 65px">
-          <div style="padding-top: 35px"></div>
-          <horizontal-bar-chart type="lines" title="Average Lines of Code Per Commit"></horizontal-bar-chart>
-        </div>
-      </div>
-      <div style="transform: translateY(-100px) !important" class="row">
-        <div class="col col-6">
-          <one-dimensional-stacked-bar-chart type="lines" title="Lines of Code Added by the top 10 Authors as Percentages - All Time"></one-dimensional-stacked-bar-chart>
-        </div>
-        <div class="col col-6">
-          <one-dimensional-stacked-bar-chart type="commit" title="Commits by the top 10 Authors as Percentages - All Time"></one-dimensional-stacked-bar-chart>
-        </div>
-      </div>
+    </div>
+    
 
-      <div class="row" style="transform: translateY(-50px) !important">
-        <lines-of-code-chart></lines-of-code-chart>
-      </div>
+
+
+     
     </div>
   </section>
 </template>
