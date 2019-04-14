@@ -261,6 +261,7 @@ export default class AugurAPI {
       Timeseries(repo, 'commitComments', 'commits/comments')
       Endpoint(repo, 'committerLocations', 'committer_locations')
       Timeseries(repo, 'totalCommitters', 'total_committers')
+      Timeseries(repo, 'linesChangedByWeek', 'lines-changed-by-week')
 
       // Issue Related
       Timeseries(repo, 'issueActivity', 'issues/activity')
@@ -285,6 +286,7 @@ export default class AugurAPI {
       Timeseries(repo, 'majorTags', 'tags/major')
       Timeseries(repo, 'newWatchers', 'new_watchers')
       Timeseries(repo, 'tags', 'tags')
+        
     }
 
     if (repo.gitURL) {
