@@ -3,17 +3,18 @@
 ## Functional Requirements
 
  - Use case 1: Visualization of lines committed per user
- 	We had some issues with implementing this use case, and in the end 
-	we had to submit an issue on the CHAOSS augur page to see about getting some insight on how to 
-	get it to work.
+ 	- User can navigate to "Lines" tab in augur
+	- Graph is shown with data on which users have committed the most lines of code for the project
+	- Graph pulls data and is populated 
  - Use case 2: Drill-down graph to show more time-specific commit data
- 	This was a use case that we would be able to implement if our created graphs in the first 
-	use case were showing up, but unfortunately we haven't been able to get it up and running. 
+ 	- User can press button on the previously described graph to show loc/week
+	- Graph pulls the same correct graph data shown but with tighter time restriction
+	- User can navigate back to original graph using an exit button
+	- Graph refreshes and shows original timed data
  - Use case 3: Detect backend loading failure w/ error code 
- 	This use case ended up failing, as we wanted to stop augur if the backend failed to load and present the user an
-	error message, but we were unable to find a way to execute that before the initialization.
-	We're submitting another issue on the main CHAOSS repo to get some help on how to not screw everything up 
-	when changing augur/application.py.
+ 	- User receives error code that backend has failed to load when launching augur
+	- Failed backend load is detected and sends an alert box to the view
+	- Eliminates confusion when stuck at loading screen 
 
 ## Database Design
 
@@ -33,11 +34,15 @@
 ## Model Files 
 	Built from augur, using a vagrant instance. 
 ## Controller Files
-		Added: frontend/app/component/LinesCard.vue 
-				Modified from frontend/app/component/GitCard.vue
-		Edited: frontend/app/router/router.js
-				frontend/app/assets/AugurAPI.js
-				frontend/app/component/Tabs.vue
+	Added: frontend/app/component/LinesCard.vue 
+		Modified from frontend/app/component/GitCard.vue
+	Edited: frontend/app/router/router.js
+		frontend/app/assets/AugurAPI.js
+		frontend/app/component/Tabs.vue
+### Description
+	We added the LinesCard.vue file to create a new tab on the augur home screen which would then show and populate a graph
+	on the page. We had to edit router.js, AugurAPI.js, and Tabs.js to incorporate our new tab. The Tabs.vue file was modified to 
+	include our new Lines tab. AugurAPI and router.js were modified to support the new page.
 ## Languages
     1. javascript
     2. html
@@ -45,6 +50,4 @@
 	    We have nobody with prior python experience, 
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2MzI2OTU5NSwtMTk5NjYwNjAzNl19
--->
+
