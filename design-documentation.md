@@ -19,7 +19,9 @@
 ## Database Design
 
 ### ERD
+![](https://lh3.googleusercontent.com/e_hVb45EkjiCXvFiPhl-XpxZZvjkv0_JqaJlOCbdmEPwdLk1xlC-OXWeY28_HOKGCeq7kfR9Mh0p)
 
+(Above) ER Diagram showing entities in the GHTorrent database 
 
 ~We have no provided DDL code because we built our program using the existing augur database schematic in mind. 
 
@@ -49,5 +51,4 @@
     3. python
 	    We have nobody with prior python experience, 
 	    and to bridge that gap we are mainly modifying the front end to avoid having to use it. 
-
 
