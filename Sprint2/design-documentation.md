@@ -42,9 +42,11 @@
 		frontend/app/assets/AugurAPI.js
 		frontend/app/component/Tabs.vue
 ### Description
-	We added the LinesCard.vue file to create a new tab on the augur home screen which would then show and populate a graph
-	on the page. We had to edit router.js, AugurAPI.js, and Tabs.js to incorporate our new tab. The Tabs.vue file was modified to 
-	include our new Lines tab. AugurAPI and router.js were modified to support the new page.
+	We added the LinesCard.vue file to create a new tab on the augur home screen 
+	which would then show and populate a graph on the page. 
+	We had to edit router.js, AugurAPI.js, and Tabs.js to incorporate our new tab. 
+	The Tabs.vue file was modified to include our new Lines tab. 
+	AugurAPI and router.js were modified to support the new page.
 ## Languages
     1. javascript
     	- Each of our members has taken a web dev course and worked with javascript enough that
