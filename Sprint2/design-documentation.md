@@ -28,6 +28,7 @@
 
 ## User Interface Files
 ![Shows created Lines tab running on our instance](https://lh3.googleusercontent.com/OlLjII_RTg9a4LC0kpiRXnj3TRE0u-jJcHZlOulMEI5D5n-wcYeK7w4m9kXY_b83FdqU6At7jfPE)
+(Above) Lines tab shown running on augur instance
 
 
 
