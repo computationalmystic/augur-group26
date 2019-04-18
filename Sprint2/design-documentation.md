@@ -48,14 +48,14 @@
 ## Languages
     1. javascript
     	- Each of our members has taken a web dev course and worked with javascript enough that
-	we feel confident we can write or any javascript code necessary to implement our 
-	use cases. 
+	 	we feel confident we can write or any javascript code necessary to implement our 
+	 	use cases. 
     2. HTML/CSS
     	- Similar to javascript, each of our members has learned enough about HTML and CSS to 
-	confidently add and modify the code required to implement our use cases. 
+		confidently add and modify the code required to implement our use cases. 
     3. python
     	- Our group lacks understanding of python, due to none of us having any prior experience
-	using it. However, we plan to overcome this challenge using online help sites like 
-	[https://www.w3schools.com/python/](https://www.w3schools.com/python/) as well as help from
-	other students who may have used python before to research anything we might need to implement.
+		using it. However, we plan to overcome this challenge using online help sites like 
+		[https://www.w3schools.com/python/](https://www.w3schools.com/python/) as well as help from
+		other students who may have used python before to research anything we might need to implement.
 
