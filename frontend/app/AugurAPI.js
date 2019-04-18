@@ -261,7 +261,7 @@ export default class AugurAPI {
       Timeseries(repo, 'commitComments', 'commits/comments')
       Endpoint(repo, 'committerLocations', 'committer_locations')
       Timeseries(repo, 'totalCommitters', 'total_committers')
-      Timeseries(repo, 'linesChangedByWeek', 'lines-changed-by-week')
+      
 
       // Issue Related
       Timeseries(repo, 'issueActivity', 'issues/activity')
@@ -291,7 +291,9 @@ export default class AugurAPI {
 
     if (repo.gitURL) {
       // Other
+      GitEndpoint(repo, 'linesChangedByWeek', 'lines_changed_by_week'),
       GitEndpoint(repo, 'changesByAuthor', 'changes_by_author'),
+      GitEndpoint(repo, 'commitsByAuthor', 'commits_by_author'),
       GitEndpoint(repo, 'cdRepTpIntervalLocCommits', 'cd_rep_tp_interval_loc_commits'),
       GitEndpoint(repo, 'cdRgTpRankedLoc', 'cd_rg_tp_ranked_loc'),
       GitEndpoint(repo, 'cdRgTpRankedCommits', 'cd_rg_tp_ranked_commits'),

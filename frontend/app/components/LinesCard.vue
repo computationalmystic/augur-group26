@@ -28,11 +28,16 @@
         </div>
     </div>
     
+    <div class="row" style="transform: translateY(-50px) !important">
+        <div class="col col-6" style="padding-right: 35px">
+          <commits-normalized-stacked-bar-chart title="Lines of code added by the top 10 authors as Percentages - By Time Period"></commits-normalized-stacked-bar-chart>
+        </div>
+    
     <div class="row">
         <div class="col col-12">
-        <dynamic-line-chart source="lines_changed_by_week"
+        <dynamic-line-chart source="linesChangedByWeek"
               title="new"
-              :data="values['lines_changed_by_week']"
+              :data="values['linesChangedByWeek']"
         </dynamic-line-chart>
         </div>
     </div>
@@ -51,6 +56,7 @@ import AugurHeader from './AugurHeader'
 import TickChart from './charts/TickChart'
 import LinesOfCodeChart from './charts/LinesOfCodeChart'
 import NormalizedStackedBarChart from './charts/NormalizedStackedBarChart'
+import CommitsNormalizedStackedBarChart from './charts/CommitsNormalizedStackedBarChart'
 import OneDimensionalStackedBarChart from './charts/OneDimensionalStackedBarChart'
 import HorizontalBarChart from './charts/HorizontalBarChart'
 import GroupedBarChart from './charts/GroupedBarChart'
@@ -61,7 +67,8 @@ import TimeIntervalBarChart from './charts/TimeIntervalBarChart'
 module.exports = {
   data() {
     return {
-      colors: ["#FF3647", "#4736FF","#3cb44b","#ffe119","#f58231","#911eb4","#42d4f4","#f032e6"]
+      colors: ["#FF3647", "#4736FF","#3cb44b","#ffe119","#f58231","#911eb4","#42d4f4","#f032e6"],
+      values: {}
     }
   },
   components: {
@@ -69,12 +76,15 @@ module.exports = {
     TickChart,
     LinesOfCodeChart,
     NormalizedStackedBarChart,
+    CommitsNormalizedStackedBarChart,
     OneDimensionalStackedBarChart,
     HorizontalBarChart,
     GroupedBarChart,
     DirectionalTimeChart,
     TimeIntervalBarChart
-  }
+  },
+  created () {
+    }
 }
 
 </script>
