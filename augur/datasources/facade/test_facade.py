@@ -22,6 +22,17 @@ def test_lines_changed_by_author(facade):
     assert facade.lines_changed_by_author("github.com/twitter/twemoji")["deletions"].iloc[0] == 4
     assert facade.lines_changed_by_author("github.com/twitter/twemoji")["whitespace"].iloc[0] == 2
 
+    
+    def test_commits_changed_by_author(facade):
+    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["author_email"].iloc[0] == "caniszczyk@gmail.com"
+    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["author_date"].iloc[0] == "2014-11-06"
+    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["affiliation"].iloc[0] == "(Unknown)"
+    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["additions"].iloc[0] == 7
+    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["deletions"].iloc[0] == 4
+    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["whitespace"].iloc[0] == 2
+
+    
+    
 def test_lines_changed_by_week(facade):
     assert facade.lines_changed_by_week("github.com/twitter/twemoji")["date"].iloc[0] == datetime.date(2014, 11, 7)
     assert facade.lines_changed_by_week("github.com/twitter/twemoji")["additions"].iloc[0] == 1263564

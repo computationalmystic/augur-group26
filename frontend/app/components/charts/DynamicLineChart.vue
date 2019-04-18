@@ -699,6 +699,7 @@ export default {
        *     'lines_changed': ['additions', 'deletions']
        *   }
        */
+       
       let endpoints = []
       let fields = {}
       this.source.split(',').forEach((endpointAndFields) => {
@@ -865,6 +866,7 @@ export default {
       }
 
       if (this.data) {
+      console.log("HERE", this.data)
         processData(this.data)
       } else {
         

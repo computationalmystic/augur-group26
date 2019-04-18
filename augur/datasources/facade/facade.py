@@ -95,6 +95,30 @@ class Facade(object):
         """)
         results = pd.read_sql(linesChangedByAuthorSQL, self.db, params={"repourl": '%{}%'.format(repo_url)})
         return results
+    
+    
+    @annotate(tag='commits-changed-by-author')
+    def commits_changed_by_author(self, repo_url):
+        """
+        Returns number of lines changed per author per day 
+
+        :param repo_url: the repository's URL
+        """
+        commitsChangedByAuthorSQL = s.sql.text("""
+            SELECT author_email, author_date, author_affiliation as affiliation, SUM(added) as additions, SUM(removed) as deletions, SUM(whitespace) as whitespace
+            FROM analysis_data
+            WHERE repos_id = (SELECT id FROM repos WHERE git LIKE :repourl LIMIT 1)
+            GROUP BY repos_id, author_date, author_affiliation, author_email
+            ORDER BY author_date ASC;
+        """)
+        results = pd.read_sql(commitsChangedByAuthorSQL, self.db, params={"repourl": '%{}%'.format(repo_url)})
+        return results
+    
+    
+    
+    
+    
+    
 
     @annotate(tag='lines-changed-by-week')
     def lines_changed_by_week(self, repo_url):
