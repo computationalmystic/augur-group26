@@ -163,7 +163,7 @@ export default {
                 // "stack": "normalize", 
                 // "axis": {"labels": false, "title": null},
                 "aggregate": "sum",
-                "stack": "center",
+               
                 "axis": null,
               },
               "color": {
