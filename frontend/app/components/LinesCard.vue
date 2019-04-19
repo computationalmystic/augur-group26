@@ -30,17 +30,9 @@
     
     <div class="row" style="transform: translateY(-50px) !important">
         <div class="col col-6" style="padding-right: 35px">
-          <commits-normalized-stacked-bar-chart title="Lines of code added by the top 10 authors as Percentages - By Time Period"></commits-normalized-stacked-bar-chart>
+          <commits-normalized-stacked-bar-chart title="Commits of code added by the top 10 authors as Percentages - By Time Period"></commits-normalized-stacked-bar-chart>
         </div>
     
-    <div class="row">
-        <div class="col col-12">
-        <dynamic-line-chart source="linesChangedByWeek"
-              title="new"
-              :data="values['linesChangedByWeek']"
-        </dynamic-line-chart>
-        </div>
-    </div>
     
 
 

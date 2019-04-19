@@ -124,20 +124,9 @@ export default {
           {
             "transform": [
              
+   
               {
-                "calculate": "(datum.additions > datum.deletions) ? 'more deletions' : 'more additions'",
-                "as": "Majority type of changes"
-              },
-              {
-                "calculate": "(datum.additions - datum.deletions)",
-                "as": "Net lines added"
-              },
-              {
-                "calculate": "(datum.additions + datum.deletions)",
-                "as": "Total lines changed"
-              },
-              {
-                "calculate": "(datum.count * 100)",
+                "calculate": "(datum.commit)",
                 "as": "percent"
               },
             ],
@@ -158,12 +147,12 @@ export default {
                 "axis": {"domain": false, "format": format}
               },
               "y": {
-                "field": "count", 
+                "field": "commit", 
                 "type": "quantitative",
                 // "stack": "normalize", 
                 // "axis": {"labels": false, "title": null},
                 "aggregate": "sum",
-                "stack": "center",
+                
                 "axis": null,
               },
               "color": {

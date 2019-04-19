@@ -105,7 +105,7 @@ class Facade(object):
         :param repo_url: the repository's URL
         """
         commitsChangedByAuthorSQL = s.sql.text("""
-            SELECT author_email, author_date, author_affiliation as affiliation, SUM(added) as additions, SUM(removed) as deletions, SUM(whitespace) as whitespace
+            SELECT author_email, author_date, author_affiliation as affiliation, SUM(added) as additions, SUM(removed) as deletions, SUM(whitespace) as whitespace, COUNT(*) as commit
             FROM analysis_data
             WHERE repos_id = (SELECT id FROM repos WHERE git LIKE :repourl LIMIT 1)
             GROUP BY repos_id, author_date, author_affiliation, author_email
