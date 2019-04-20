@@ -25,6 +25,6 @@ Use Case 1 is deployed here you can see the graph marked "Commits of code added 
 ![enter image description here](https://lh3.googleusercontent.com/d1CDBadjXATErk-gHMMIBKTzdokLD8bXJe_-d0Ykb5sr-ujSKuXCVMLfrLO5rsFkQQwsdXDQgtU "graph")
 
 
-The following picture illustratest the connections of the data to the use case.
+The following picture illustrates the connections of the data to the use case.
 
 ![enter image description here](https://lh3.googleusercontent.com/HPa0dMkurJ116goi5dZpcIXcigCA4OwKQ6p1KtMQgh98xSqo6Nsl5lNcK4po_5DScVRqRlmjV1A "augur flow")
