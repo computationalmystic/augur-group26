@@ -26,8 +26,7 @@ Use Case 1 and 2 is deployed here. You can see use case 1's graph marked "Commit
 
 This is a picture of the use case 2 graph.
 
-![enter image description here](https://lh3.googleusercontent.com/j_Z8zT5_NgBFIjbB0qSTL63Ypw_qJ41xPYwjtmGUGlXUT_1vbbmM_w7StffOU5wgKSt_TNLoCfo "updated diagram")
-
+![enter image description here](https://lh3.googleusercontent.com/2-vMl2uwlS_5fcK0zxsBfQz1XTaFPPH3rfQaxSNOUU3Zvs0D2Nc-o-esWD8rp81zpCvhv5KES24 "case 2")
 
 The following picture illustrates the connections of the data to the use case.
 
