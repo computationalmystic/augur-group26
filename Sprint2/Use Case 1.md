@@ -12,4 +12,5 @@
 
 Use Case 1 is deployed here you can see the graph marked "Commits of code added by the top 10 authors as Percentages- By Time Period"
 -Starting form the lauch page of Augur you click your reposititory.
-![Shows created Lines tab running on our instance](https://![Shows created Lines tab running on our instance](https://lh3.googleusercontent.com/OlLjII_RTg9a4LC0kpiRXnj3TRE0u-jJcHZlOulMEI5D5n-wcYeK7w4m9kXY_b83FdqU6At7jfPE)
+
+![Shows created Lines tab running on our instance](https://lh3.googleusercontent.com/OlLjII_RTg9a4LC0kpiRXnj3TRE0u-jJcHZlOulMEI5D5n-wcYeK7w4m9kXY_b83FdqU6At7jfPE)
