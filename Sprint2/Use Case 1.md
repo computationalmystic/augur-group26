@@ -28,3 +28,13 @@ Use Case 1 is deployed here you can see the graph marked "Commits of code added 
 The following picture illustrates the connections of the data to the use case.
 
 ![enter image description here](https://lh3.googleusercontent.com/HPa0dMkurJ116goi5dZpcIXcigCA4OwKQ6p1KtMQgh98xSqo6Nsl5lNcK4po_5DScVRqRlmjV1A "augur flow")
+
+
+
+## Design Requirements
+
+Use Case 1:
+	Use case 1 is on schedule. We made a new GitEndpoint 
+		GitEndpoint(repo, 'commitsByAuthor', 'commits_by_author'),
+	In order to do this a new Sql command had to be made in the "facade.py" file. This SQL command is read in "facade/routes.py". The command issued in "routes.py" to the augur database, the database returns the requested information is tagged and can be requested from the frontend. The frontend uses AugurAPI.js to map the tag to any page that calls it. In our case we created "commitsByAuthor". commitsByAuthor is then called by our new chart "CommitsNormalizedStackedBarChart.vue". This chart is then called by our page "LinesCard.vue". This card is called by any page running the "Tabs.vue" which is how our card is called via router/router.js.
+"router.js" is where almost all the pages are called and displayed.
