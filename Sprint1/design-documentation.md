@@ -1,5 +1,5 @@
 ## Deployment Environment
-[http://ec2-18-219-137-121.us-east-2.compute.amazonaws.com:3333/](http://ec2-18-219-137-121.us-east-2.compute.amazonaws.com:3333/)
+[http://ec2-13-58-174-130.us-east-2.compute.amazonaws.com:3333/](http://ec2-13-58-174-130.us-east-2.compute.amazonaws.com:3333/)
 ## Functional Requirements
 
  - Use case 1: Visualization of lines committed per user
