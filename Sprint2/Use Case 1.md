@@ -12,7 +12,7 @@
 [http://ec2-13-58-174-130.us-east-2.compute.amazonaws.com:3333/single/github.com%2Ftwitter%2Ftwemoji/lines#](http://ec2-13-58-174-130.us-east-2.compute.amazonaws.com:3333/single/github.com%2Ftwitter%2Ftwemoji/lines#)
 
 
-Use Case 1 is deployed here you can see the graph marked "Commits of code added by the top 10 authors as Percentages- By Time Period"
+Use Case 1 and 2 is deployed here. You can see use case 1's graph marked "Commits of code added by the top 10 authors as Percentages- By Time Period". However use case 2 is being a little more subborn while we do have a general outline of our graph, but we have not got the data to appear the way we want.
 
 -Starting form the launch page of Augur you click your repository.
 
@@ -20,9 +20,13 @@ Use Case 1 is deployed here you can see the graph marked "Commits of code added 
 
 ![enter image description here](https://lh3.googleusercontent.com/_A7V4mliPB9bHjx4WLSJeP46Do01AJP5Gnb40NrJAg9igjzBX2DsSF37Uq_Gjon7UfDitc7ZzLI "augur line tab")
 
--You are now on the page with our graphs.
+-You are now on our page. This is a picture of the use case 1 graph.
 
 ![enter image description here](https://lh3.googleusercontent.com/d1CDBadjXATErk-gHMMIBKTzdokLD8bXJe_-d0Ykb5sr-ujSKuXCVMLfrLO5rsFkQQwsdXDQgtU "graph")
+
+This is a picture of the use case 2 graph.
+
+![enter image description here](https://lh3.googleusercontent.com/j_Z8zT5_NgBFIjbB0qSTL63Ypw_qJ41xPYwjtmGUGlXUT_1vbbmM_w7StffOU5wgKSt_TNLoCfo "updated diagram")
 
 
 The following picture illustrates the connections of the data to the use case.
