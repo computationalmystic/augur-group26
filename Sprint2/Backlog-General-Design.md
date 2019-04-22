@@ -77,3 +77,11 @@ We are making use of the analysis_data schema in our data mining.
 When calling the commits-changed-by-author we used this SQL command to generate the information used in our graphs.
 
 ![enter image description here](https://lh3.googleusercontent.com/bLMmw17aKzgprtOsA_gOZ9vsfJWfSeX0x2L11Jth2R5wEkIn8qi_TIc-5-qnya5DvUPrClhU8Xo "commits sql")
+
+## Bonus
+
+We also ran pytest on our database pull while they did come back as errored. It was mainly due to other configuration.
+
+![enter image description here](https://lh3.googleusercontent.com/8lq6XUbCacsW2yyqDvr4WmHMoA4GpS9V9On6b4i07xl2_QPZjYfbGOrGwoA5b1W9RhF68EVvAJI "bonus 2")
+
+![enter image description here](https://lh3.googleusercontent.com/V8cETGISeTpffvpxsWeIeKARg7zrIMH7KD4E-7PTT3NPlXH2UusDsCOgkptZ1l1LPLuBKo-cvZo "bonus 1")
