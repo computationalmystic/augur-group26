@@ -39,9 +39,20 @@
 ## Controller Files
 	Added: frontend/app/component/LinesCard.vue 
 		Modified from frontend/app/component/GitCard.vue
+		frontend/app/component/chart/ZoomChart.vue
+		frontend/app/component/CommitsNormalizedStackedBarChart.vue
 	Edited: frontend/app/router/router.js
-		frontend/app/assets/AugurAPI.js
+		frontend/app/AugurAPI.js
 		frontend/app/component/Tabs.vue
+		augur/datasources/facade/facade.py
+		augur/datasources/facade/routes.py
+		augur/datasources/facade/test_facade.py
+		
+	Most of the changes can be found in commits:
+		New graph and full path
+		Use case 3 work
+		
+		
 ### Description
 	We added the LinesCard.vue file to create a new tab on the augur home screen 
 	which would then show and populate a graph on the page. 
