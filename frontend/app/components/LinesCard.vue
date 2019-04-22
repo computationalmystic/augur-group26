@@ -34,6 +34,9 @@
         </div>
     
     
+        <div class="col col-12">
+          <zoom-chart source="changesByAuthor" :data="values['changesByAuthor']"></zoom-chart>
+        </div>
 
 
 
@@ -46,6 +49,7 @@
 
 import AugurHeader from './AugurHeader'
 import TickChart from './charts/TickChart'
+import ZoomChart from './charts/ZoomChart'
 import LinesOfCodeChart from './charts/LinesOfCodeChart'
 import NormalizedStackedBarChart from './charts/NormalizedStackedBarChart'
 import CommitsNormalizedStackedBarChart from './charts/CommitsNormalizedStackedBarChart'
@@ -64,6 +68,7 @@ module.exports = {
     }
   },
   components: {
+    ZoomChart,
     AugurHeader,
     TickChart,
     LinesOfCodeChart,
