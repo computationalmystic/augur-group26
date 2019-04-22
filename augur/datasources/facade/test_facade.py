@@ -23,13 +23,15 @@ def test_lines_changed_by_author(facade):
     assert facade.lines_changed_by_author("github.com/twitter/twemoji")["whitespace"].iloc[0] == 2
 
     
-    def test_commits_changed_by_author(facade):
-    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["author_email"].iloc[0] == "caniszczyk@gmail.com"
-    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["author_date"].iloc[0] == "2014-11-06"
-    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["affiliation"].iloc[0] == "(Unknown)"
-    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["additions"].iloc[0] == 7
-    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["deletions"].iloc[0] == 4
-    assert facade.lines_changed_by_author("github.com/twitter/twemoji")["whitespace"].iloc[0] == 2
+def test_commits_changed_by_author(facade):
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")["author_email"].iloc[0] == "caniszczyk@gmail.com"
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")["author_date"].iloc[0] == "2014-11-06"
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")["affiliation"].iloc[0] == "(Unknown)"
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")["additions"].iloc[0] == 7
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")["deletions"].iloc[0] == 4
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")["whitespace"].iloc[0] == 2
+    assert facade.commits_changed_by_author("github.com/twitter/twemoji")
+    ["commit"].iloc[0] == 5
 
     
     
