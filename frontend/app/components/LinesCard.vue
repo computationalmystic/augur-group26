@@ -29,13 +29,14 @@
     </div>
     
     <div class="row" style="transform: translateY(-50px) !important">
-        <div class="col col-6" style="padding-right: 35px">
+        <div class="col col-12" style="padding-right: 35px; padding-top: 50px">
           <commits-normalized-stacked-bar-chart title="Commits of code added by the top 10 authors as Percentages - By Time Period"></commits-normalized-stacked-bar-chart>
         </div>
     
     
-        <div class="col col-12">
-          <zoom-chart source="changesByAuthor" :data="values['changesByAuthor']"></zoom-chart>
+     
+        <div class="col col-12" style="padding-left: 35px">
+          <zoom-chart title="Commits of code added by the top 10 authors as Percentages - By Time Period"></zoom-chart>
         </div>
 
 

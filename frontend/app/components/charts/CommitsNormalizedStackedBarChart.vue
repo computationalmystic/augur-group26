@@ -4,7 +4,7 @@
       <!-- <h3>Lines of code added by the top 10 authors as Percentages - By Time Period</h3> -->
       <vega-lite :spec="spec" :data="values"></vega-lite>
       <p> {{ chart }} </p>
-      <div style="position: relative; top: -80px !important"class="form-item form-checkboxes tickradios">
+      <div style=" top: -80px !important"class="form-item form-checkboxes tickradios">
 
 
           <div class="inputGroup "  style="padding-top: 5px;">
@@ -96,7 +96,7 @@ export default {
       let config = {
         "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
         "width": 800,
-        "height": 380,
+        "height": 300,
         "title": {
           "text": this.title,
           "offset": 15
