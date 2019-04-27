@@ -263,7 +263,6 @@ cite.metric a
   margin: auto
 
 .error:before
-  content: "\26A0"
   font-size: 3em;
   justify-content: center
   padding: 50px 50px 50px 50px
@@ -274,8 +273,7 @@ cite.metric a
   font-size: 1.1em;
   font-weigth: 600
 
-.marks
-  padding: 10px 0px 0px 24px !important
+
 
 .role-title > text
   font-size: 20px !important
@@ -300,6 +298,25 @@ cite.metric a
   width: 100%;
   // position: relative
 
+.zoomchart *
+  overflow: visible !important;
+  width: 100%;
+ 
+  z-index: 0;
+
+ // position: relative
+  
+.zoomlegend
+  position: relative
+  margin: 0
+  padding: 0
+  height: 0
+  top: 31px
+  left: 55px
+  font-size: 14px
+  font-weight: bold
+  //opacity: 0.8
+
 
 .normalbar *
   overflow: visible !important;
@@ -321,7 +338,8 @@ cite.metric a
   left: 55px
   font-size: 14px
   font-weight: bold
-  opacity: 0.8
+  //opacity: 0.8
+  z-index: 3
 
 .mg-baselines
   opacity: 0.5
@@ -331,8 +349,7 @@ cite.metric a
 }
 
 .linechart
-  padding: 0px 0px 0px 18px
-
+  text-align: center
 
 .loader {
   width: 100%

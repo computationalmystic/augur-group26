@@ -1,30 +1,10 @@
 <template>
   <div ref="holder">
-    <div class="tickchart ">
-      <h3>Lines of code added by the top 10 authors visualized</h3>
-      <div :id="source"></div>
-      <!-- <vega-lite :spec="spec" :data="values"></vega-lite> -->
+    <div style="margin-bottom: 0 !important;" class="zoomchart ">
+    
+      <vega-lite :spec="spec" :data="values"></vega-lite>
       <p> {{ chart }} </p>
-      <!-- <p class="note">*point values with total lines changed outside the bounds of [50.000, 1.000.000] are rounded to the corresponding edge limit</p> -->
-      <div class="form-item form-checkboxes tickradios" style="transform: translateY(-35px) !important">
-
-
-          <div class="inputGroup" >
-            <input id="circradio" name="comparebaseline" value="0" type="radio" v-model="tick">
-            <label id="front" for="circradio">Circle</label>
-          </div>
-          <div class="inputGroup ">
-            <input id="tickradio"name="comparebaseline" value="1" type="radio" v-model="tick">
-            <label id="front" for="tickradio">Tick</label>
-          </div>
-          <div class="inputGroup ">
-            <input id="rectradio"name="comparebaseline" value="2" type="radio" v-model="tick">
-            <label id="front" for="rectradio">Rectangle</label>
-          </div>
-
-        
-      </div>
-      
+    
     </div>
   </div>
 </template>
@@ -33,6 +13,7 @@
 <script>
 import { mapState } from 'vuex'
 import AugurStats from 'AugurStats'
+
 export default {
   props: ['source', 'citeUrl', 'citeText', 'title', 'disableRollingAverage', 'alwaysByDate', 'data'],
   data() {
@@ -51,11 +32,8 @@ export default {
       monthDecimals: monthDecimals,
       years: years,
       setYear: 0,
-      tick: 0
+      group: 1
     }
-  },
-  mounted() {
-    this.spec;
   },
   computed: {
     repo() {
@@ -68,88 +46,126 @@ export default {
       return this.$store.state.endDate
     },
     spec() {
-      console.log("test")
-      const vegaEmbed = window.vegaEmbed;
-      let type = null, bin = null, size = null, opacity = null;
- if(this.group == 0) {
-        timeUnit = 'year'
-        format = '%Y'
-        type = "line"
-        bin = false
-        size = 30
-      }
+      
+      let type = null, bin = null, size = null, timeUnit = null, format = null ;
+
+    
       if (this.group == 1) {
         timeUnit = 'yearmonth'
         format = '%y %b'
         type = "line"
-            bin = false
+            bin = true
             size = 13
+            
       }
-      if (this.group == 2) {
-        timeUnit = 'yearmonth'
-        format = '%y %b'
-        type = "line"
-            bin = false
-            size = 13
-        type = "area"
-      }
+  
+
+      var colors = ["#FF3647", "#4736FF","#3cb44b","#ffe119","#f58231","#911eb4","#42d4f4","#f032e6"]
       let config = {
- "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+        "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
         "width": 800,
-        "height": 380,
-        "title": {
-          "text": this.title,
-          "offset": 15
-        },
-     "selection": {
-        "grid":{
-        "type": "interval", "bind": "scales"
-        }
-     },
-        "mark": "circle",
-        "encoding": {
-            "x": {
-            "field": "author_date", "type": "temporal",
-            "scale": {"domain": [0, 150]}
+        "height": 300,
+   
+       
+        "config": {
+            "axis": {
+                "clip": true,
+              
+                },
+          
+   "marks":{
+   "padding":1
+   },
+   "mark-line":{
+   "clip":true
+   },
+        "legend": {
+         
+            "orient": "right",
+            "titlePadding": 1,
+            "padding": 1,
+            "labelFontSize": 14,
+            "titleFontSize": 14,
+            "labelLimit": 300,
+            "width": 100,
+            "height": 300,
+            "fillColor": "#ccc"
+          },
+          },
+        "layer": [
+          {"transform": [
+          
+            {"calculate": "(datum.commit * 100)",
+                "as": "sum"
             },
-            "y": {
-                "field": "commit", 
-                "type": "quantitative",
-                "aggregate": "sum",
-                "scale": {"domain": [0, 150]}
+        ],
+            
+        "selection": {"grid": {"type": "interval", "bind": "scales"}},
+            
+            "mark": {
+              "type": type,
+              "tooltip": {"content": "data"},
+              "cornerRadius": 45,
+              "clip": true
             },
-            "size": {"field": "net lines added", "type": "quantitative"}
-            }
-        }
-      
+            
+            "encoding": {
+                "x": {
+                    "field": "author_date", 
+                    "type": "temporal", 
+                    "timeUnit": timeUnit, 
+                    "scale": {"domain": [{"year":2014},{"year":2018} ]},
+                    "axis": { "format": format}
+                    },
+                "y": {
+                    "field": "count", 
+                    "type": "quantitative",
+                    "aggregate": "sum",
+                   
+                  
+                    },
+                "color": {
+                    "field": "author_email",
+                    "type": "nominal",
+                    "scale": {"scheme": "category10"}
+                    },
+              },
+            
+            
+          },
         
-      
+        ]
+        
+      }
+
 
       let repo = window.AugurAPI.Repo({ gitURL: this.repo })
       let contributors = {}
       let organizations = {}
+
       let addChanges = (dest, src) => {
         if (dest && src) {
           if (typeof dest !== 'object') {
-            dest['additions'] = 0
-            dest['deletions'] = 0
+            dest['commit'] = 0
           }
-          dest['additions'] += (src['additions'] || 0)
-          dest['deletions'] += (src['deletions'] || 0)
+          dest['commit'] += (src['commit'] || 0)
+          
         }
       }
+
       let group = (obj, name, change, filter) => {
         if (filter(change)) {
           let year = (new Date(change.author_date)).getFullYear()
           let month = (new Date(change.author_date)).getMonth()
-          obj[change[name]] = obj[change[name]] || { additions: 0, deletions: 0 }
+          obj[change[name]] = obj[change[name]] || { commit: 0}
           addChanges(obj[change[name]], change)
-          obj[change[name]][year] = obj[change[name]][year] || { additions: 0, deletions: 0 }
+          obj[change[name]][year] = obj[change[name]][year] || { commit: 0}
           addChanges(obj[change[name]][year], change)
-          obj[change[name]][year + '-' + month] = obj[change[name]][year + '-' + month] || { additions: 0, deletions: 0 }
+          obj[change[name]][year + '-' + month] = obj[change[name]][year + '-' + month] || { commit: 0}
           addChanges(obj[change[name]][year + '-' + month], change)
         }
       }
+
       let flattenAndSort = (obj, keyName, sortField) => {
         return Object.keys(obj)
             .map((key) => {
@@ -161,29 +177,48 @@ export default {
               return b[sortField] - a[sortField]
             })
       }
+
       let filterDates = (change) => {
         return (new Date(change.author_date)).getFullYear() > this.years[0]
       }
-      let processData = (data) => {
-        data.forEach((change) => {
+
+      let authors = []
+      let track = {"total": 0}
+      repo.commitsByAuthor().then((changes) => {
+        changes.forEach((change) => {
           change.author_date = new Date(change.author_date)
+          change["count"] = change["count"] ? change["count"] + 1 : 1
+          track[change.author_email] = track[change.author_email] ? track[change.author_email] + 1 : 1
+          track["total"] += 1
         })
-        data.forEach((change) => {
-          if (isFinite(change.additions) && isFinite(change.deletions)) {
+
+        changes.forEach((change) => {
+          if (isFinite(change.commit)) {
             group(contributors, 'author_email', change, filterDates)
             if (change.author_affiliation !== 'Unknown') {
               group(organizations, 'affiliation', change, filterDates)
             }
           }
+          if(!authors.includes(change["author_email"])) {
+            authors.push(change["author_email"])
+            change["flag"] = (track[change.author_email] / track["total"]).toFixed(4)
+            // console.log(change, track)
+          } //else change["flag"] = 100
+
+          
         })
         
+
         //this.values = flattenAndSort(contributors, 'author_email', 'additions')
         //this.organizations = flattenAndSort(organizations, 'name', 'additions')
-        this.contributors = flattenAndSort(contributors, 'author_email', 'additions')
+        this.contributors = flattenAndSort(contributors, 'author_email', 'commit')
         var careabout = []
         this.contributors.slice(0,10).forEach((obj) => {
           careabout.push(obj["author_email"])
         })
+
+
+
         let findObjectByKey = (array, key, value) => {
             let ary = []
             for (var i = 0; i < array.length; i++) {
@@ -193,40 +228,129 @@ export default {
             }
             return ary;
         }
+
+
         var ary = []
         
         careabout.forEach((name) => {
-          findObjectByKey(data, "author_email", name).forEach((obj) => {
+          findObjectByKey(changes, "author_email", name).forEach((obj) => {
             ary.push(obj)
           })
           // changes.find(obj => obj.author_email == name))
         })
       
         this.values = ary
-      }
-      if (this.data) {
-        processData(this.data)
-      } else {
-        repo.changesByAuthor().then((changes) => {
-          processData(changes)
-        })
-      }
+
+      })
+        
+      
+
+            
+
+      
+
+
       $(this.$el).find('.showme, .hidefirst').removeClass('invis')
       $(this.$el).find('.stackedbarchart').removeClass('loader')
+
+      // let endpoints = []
+      // let fields = {}
+      // this.source.split(',').forEach((endpointAndFields) => {
+      //   let split = endpointAndFields.split(':')
+      //   endpoints.push(split[0])
+      //   if (split[1]) {
+      //     fields[split[0]] = split[1].split('+')
+      //   }
+      // })
+
       // Get the repos we need
       let repos = []
       if (this.repo) {
         repos.push(window.AugurRepos[this.repo])
       }
-      this.reloadImage(config)
+
+      let processData = (data) => {
+        // // We usually want to limit dates and convert the key to being vega-lite friendly
+        // let defaultProcess = (obj, key, field, count) => {
+        //   let d = AugurStats.convertKey(obj[key], field)
+        //   return AugurStats.convertDates(d, this.earliest, this.latest)
+        // }
+
+        // // Normalize the data into [{ date, value },{ date, value }]
+        // // BuildLines iterates over the fields requested and runs onCreateData on each
+        // let normalized = []
+        // let buildLines = (obj, onCreateData) => {
+        //   if (!obj) {
+        //     return
+        //   }
+        //   if (!onCreateData) {
+        //     onCreateData = (obj, key, field, count) => {
+        //       let d = defaultProcess(obj, key, field, count)
+        //       normalized.push(d)
+        //     }
+        //   }
+        //   let count = 0
+        //   for (var key in obj) {
+        //     if (obj.hasOwnProperty(key)) {
+        //       if (fields[key]) {
+        //         fields[key].forEach((field) => {
+        //           onCreateData(obj, key, field, count)
+        //           count++
+        //         })
+        //       } else {
+        //         if (Array.isArray(obj[key]) && obj[key].length > 0) {
+        //           let field = Object.keys(obj[key][0]).splice(1)
+        //           onCreateData(obj, key, field, count)
+        //           count++
+        //         } else {
+        //           this.renderError()
+        //           return
+        //         }
+        //       }
+        //     } // end hasOwnProperty
+        //   } // end for in
+        // } // end normalize function
+
+        // let values = []
+
+        // buildLines(data[this.repo], (obj, key, field, count) => {
+        //   // Build basic chart
+        //   normalized.push(defaultProcess(obj, key, field, count))
+        // })
+
+        // if (normalized.length == 0) {
+        //   this.renderError()
+        // } else {
+        //     for(var i = 0; i < normalized.length; i++){
+        //       normalized[i].forEach(d => {
+        //         //d.name = legend[i]
+        //         //d.color = colors[i]
+        //         values.push(d);
+        //       })
+        //     }
+        //   }
+
+        // $(this.$el).find('.showme, .hidefirst').removeClass('invis')
+        // $(this.$el).find('.stackedbarchart').removeClass('loader')
+        // this.values = values
+      }
+
+      // if (this.data) {
+      //   processData(this.data)
+      // } else {
+      //   window.AugurAPI.batchMapped(repos, endpoints).then((data) => {
+      //     processData(data)
+      //   })
+      // }
+
+
+
       return config
-    }
-  },
-  methods: {
-    reloadImage (config) {
-      config.data = {"values": this.values}
-      vegaEmbed('#' + this.source, config, {tooltip: {offsetY: -110}, mode: 'vega-lite',}) 
+
     }
   }
+  
 }
+
 </script>
+
