@@ -6,8 +6,8 @@
 
 #### frontend/app/components/Tabs.vue
 
-lines 13, 14
+  lines 13, 14
 
 #### frontend/app/router/router.js
 
-lines 20, 111, 121-130
+  lines 20, 111, 121-130
