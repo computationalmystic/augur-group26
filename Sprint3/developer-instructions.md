@@ -9,3 +9,6 @@ cd augur
 make vagrant
 ```
 instead of the repository in the given example.
+
+From there, when you launch augur on your vagrant instance it should show 
+our version of augur. 
