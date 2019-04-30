@@ -2,11 +2,11 @@
 
 ## April 12, 2019
 
-Added new tab named "lines"
+**Added new tab named "lines"**
 
 #### frontend/app/components/Tabs.vue
 
-lines 13,14
+lines 13, 14
 
 #### frontend/app/router/router.js
 
