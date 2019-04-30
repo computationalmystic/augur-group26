@@ -24,6 +24,11 @@
 
         
       </div>
+      
+       <div style="padding: 0 50px 0 50px; font-size: 12px">
+        <p>The bars on the graph represent the number of commits made by the authors. Different colors represent differnt authors. There are three view choices: Month is how many commits per month. Year is how many commits per year. Continous is a continous representation of month graph.</p>
+      </div>
+    
     </div>
   </div>
 </template>
@@ -99,6 +104,7 @@ export default {
         "height": 300,
         "title": {
           "text": this.title,
+          "fontSize": 10,
           "offset": 15
         },
         "config": {
@@ -111,7 +117,7 @@ export default {
             "titlePadding": 10,
             "padding": 40,
             "labelFontSize": 14,
-            "titleFontSize": 14,
+            "titleFontSize": 20,
             "labelLimit": 260 
           },
           "scale": {"minSize": 100, "maxSize": 500},
