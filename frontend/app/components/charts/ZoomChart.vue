@@ -5,6 +5,10 @@
       <vega-lite :spec="spec" :data="values"></vega-lite>
       <p> {{ chart }} </p>
     
+    <div style="padding: 0 50px 0 50px; font-size: 12px">
+        <p>The lines on the graph represent the number of commits in a month by each author. If you want to zoom in, hover your cursor over graph and scroll up or down.</p>
+      </div>
+    
     </div>
   </div>
 </template>
@@ -65,7 +69,10 @@ export default {
         "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
         "width": 800,
         "height": 300,
-   
+        "title": {
+          "text": "Commits of code added by the top 10 authors Zoomable",
+          "offset": 15
+        },
        
         "config": {
             "axis": {
