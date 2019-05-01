@@ -1,7 +1,10 @@
 # Created Files
 
-### April 12, 2019
+### April 18, 2019
 
 ##### frontend/app/components/LinesCard.vue
-##### frontend/app/component/chart/ZoomChart.vue
 #####	frontend/app/component/CommitsNormalizedStackedBarChart.vue
+
+### April 22, 2019
+
+##### frontend/app/component/chart/ZoomChart.vue
