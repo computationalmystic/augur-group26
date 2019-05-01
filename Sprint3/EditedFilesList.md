@@ -36,9 +36,61 @@ lines 99-121
 
 lines 69-102
 
+
+## April 22, 2019
+
+#### augur/frontend/app/components/GitCard.vue
+
+line 81
+
+#### augur/frontend/app/components/LinesCard.vue
+
+lines 37-39,52,71
+
+#### augur/frontend/app/components/charts/ZoomChart.vue
+
+lines 1-232
+
 #### augur/datasources/facade/test_facade.py
 
 lines 25-35
 
+## April 27, 2019
 
+#### augur/frontend/app/components/LinesCard.vue
 
+lines 32, 37-39
+
+#### augur/frontend/app/components/charts/CommitsNormalizedStackedBarChart.vue
+
+lines 7,99
+
+#### augur/frontend/app/components/charts/ZoomChart.vue
+
+lines 3-5,7,16,35,49-52,57,59,63,65,67-99,111-140,145,149,151-155,160,162,164,168,180,184-188,190-196,202-214,236
+
+#### augur/frontend/app/include/kube/kube.css 
+
+lines 16,23,312,324,564-566
+
+#### augur/frontend/app/styles/ghdata.styl
+
+lines 301-319,341,342,352
+
+## April 30,2019
+
+#### augur/frontend/app/components/charts/CommitsNormalizedStackedBarChart.vue
+
+lines 27-31,107,120
+
+#### augur/frontend/app/components/charts/NormalizedStackedBarChart.vue
+
+line 166
+
+#### augur/frontend/app/components/charts/ZoomChart.vue
+
+lines 8-11,78-75
+
+#### augur/frontend/app/styles/ghdata.styl
+
+lines 33-305
