@@ -36,15 +36,18 @@ Using the following link as a template edit augur.config.json to run the server 
 
 ### Install Anaconda
 curl https://repo.anaconda.com/archive/Anaconda3-5.1.0-Linux-x86_64.sh > Anaconda.sh
+
 chmod +x Anaconda.sh
 
 ### You must agree to Anaconda's license terms to proceed
 ./Anaconda.sh -b
+
 rm Anaconda.sh
 
 ### To launch you will need to run
 
 make dev-start
+
 make dev
  
 ### To lauch and run indefinely 
