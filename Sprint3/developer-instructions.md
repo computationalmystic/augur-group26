@@ -17,6 +17,11 @@ our version of augur.
 
 ## EC2 INSTANCE VIA AMAZON
 
+### Open EC2 Inbound Ports
+
+The first thing you will need to do is open the inbound 3333 and 5000 to your EC2 instance. If you need help the following link will will walk you through this step by step.
+
+[https://github.com/computationalmystic/augur-group26/blob/master/Sprint3/ec2%20add%20protocols.md](https://github.com/computationalmystic/augur-group26/blob/master/Sprint3/ec2%20add%20protocols.md)
 
 ### Install NodeSource
 
