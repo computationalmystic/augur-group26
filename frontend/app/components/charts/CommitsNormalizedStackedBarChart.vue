@@ -109,7 +109,8 @@ export default {
         },
         "config": {
           "axis":{
-                "grid": false
+                "grid": false,
+                "clip": true,
               },
           "legend": {
             "offset": -20,
@@ -132,7 +133,7 @@ export default {
              
    
               {
-                "calculate": "(datum.commit)",
+                  "calculate": "(datum.percentage * 100)",
                 "as": "percent"
               },
             ],
@@ -153,13 +154,13 @@ export default {
                 "axis": {"domain": false, "format": format}
               },
               "y": {
-                "field": "commit", 
+                "field": "percentage", 
                 "type": "quantitative",
                 // "stack": "normalize", 
-                // "axis": {"labels": false, "title": null},
-                "aggregate": "sum",
+                 "axis": {"labels": true},
+                "aggregate": "percentage",
                 
-                "axis": null,
+            
               },
               "color": {
                 "field": "author_email",
@@ -212,11 +213,11 @@ export default {
       let addChanges = (dest, src) => {
         if (dest && src) {
           if (typeof dest !== 'object') {
-            dest['additions'] = 0
-            dest['deletions'] = 0
+            dest['commit'] = 0
+            
           }
-          dest['additions'] += (src['additions'] || 0)
-          dest['deletions'] += (src['deletions'] || 0)
+          dest['commit'] += (src['commit'] || 0)
+          
         }
       }
 
@@ -224,11 +225,11 @@ export default {
         if (filter(change)) {
           let year = (new Date(change.author_date)).getFullYear()
           let month = (new Date(change.author_date)).getMonth()
-          obj[change[name]] = obj[change[name]] || { additions: 0, deletions: 0 }
+          obj[change[name]] = obj[change[name]] || { commit: 0 }
           addChanges(obj[change[name]], change)
-          obj[change[name]][year] = obj[change[name]][year] || { additions: 0, deletions: 0 }
+          obj[change[name]][year] = obj[change[name]][year] || { commit: 0 }
           addChanges(obj[change[name]][year], change)
-          obj[change[name]][year + '-' + month] = obj[change[name]][year + '-' + month] || { additions: 0, deletions: 0 }
+          obj[change[name]][year + '-' + month] = obj[change[name]][year + '-' + month] || { commit: 0 }
           addChanges(obj[change[name]][year + '-' + month], change)
         }
       }
@@ -254,13 +255,13 @@ export default {
       repo.commitsByAuthor().then((changes) => {
         changes.forEach((change) => {
           change.author_date = new Date(change.author_date)
-          change["count"] = change["count"] ? change["count"] + 1 : 1
+          change["percentage"] = change["percentage"] ? change["percentage"] + 1 : 1
           track[change.author_email] = track[change.author_email] ? track[change.author_email] + 1 : 1
           track["total"] += 1
         })
 
         changes.forEach((change) => {
-          if (isFinite(change.additions) && isFinite(change.deletions)) {
+          if (isFinite(change.commit) && isFinite(change.deletions)) {
             group(contributors, 'author_email', change, filterDates)
             if (change.author_affiliation !== 'Unknown') {
               group(organizations, 'affiliation', change, filterDates)
@@ -278,7 +279,7 @@ export default {
 
         //this.values = flattenAndSort(contributors, 'author_email', 'additions')
         //this.organizations = flattenAndSort(organizations, 'name', 'additions')
-        this.contributors = flattenAndSort(contributors, 'author_email', 'additions')
+        this.contributors = flattenAndSort(contributors, 'author_email', 'commit')
         var careabout = []
         this.contributors.slice(0,10).forEach((obj) => {
           careabout.push(obj["author_email"])
