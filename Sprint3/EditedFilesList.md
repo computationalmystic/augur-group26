@@ -57,6 +57,8 @@ lines 25-35
 
 ## April 27, 2019
 
+*trying to *get use case 2 to work everything looks good except graph travels outside the grid*
+
 #### augur/frontend/app/components/LinesCard.vue
 
 lines 32, 37-39
@@ -78,6 +80,8 @@ lines 16, 23, 312, 324, 564-566
 lines 301-319, 341, 342, 352
 
 ## April 30,2019
+
+*fixed the zoomable graph. added titles and graph explantions*
 
 #### augur/frontend/app/components/charts/CommitsNormalizedStackedBarChart.vue
 
