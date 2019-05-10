@@ -121,11 +121,11 @@ export default {
                     "field": "author_date", 
                     "type": "temporal", 
                     "timeUnit": timeUnit, 
-                    "scale": {"domain": [{"year":2014},{"year":2018} ]},
+                    "scale": {"domain": [{"year":2014,"month":11},{"year":2018,"month":9} ]},
                     "axis": { "format": format}
                     },
                 "y": {
-                    "field": "count", 
+                    "field": "commit", 
                     "type": "quantitative",
                     "aggregate": "sum",
                    
@@ -157,7 +157,8 @@ export default {
           }
           dest['commit'] += (src['commit'] || 0)
           
-        }
+        }else{
+        dest['commit'] =0}
       }
 
       let group = (obj, name, change, filter) => {
@@ -194,7 +195,7 @@ export default {
       repo.commitsByAuthor().then((changes) => {
         changes.forEach((change) => {
           change.author_date = new Date(change.author_date)
-          change["count"] = change["count"] ? change["count"] + 1 : 1
+          change["count"] = change.commit ? change.commit + change["count"] : change.commit
           track[change.author_email] = track[change.author_email] ? track[change.author_email] + 1 : 1
           track["total"] += 1
         })
