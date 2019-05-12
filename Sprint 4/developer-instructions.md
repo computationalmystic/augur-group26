@@ -122,7 +122,7 @@ Using the following link as a template edit augur.config.json to run the server 
 
 [https://github.com/computationalmystic/augur-group26/blob/master/Sprint3/Jason%20outline](https://github.com/computationalmystic/augur-group26/blob/master/Sprint3/Jason%20outline)
 
-### to install dev
+### To install dev
 
 make install-dev
 
