@@ -141,5 +141,6 @@ nohup make dev-start
 In case you have problems with ownership or permissions here are the commands you may need to change the EC2 ownerships and permissions
 
 sudo chown -R ec2-user node_modules/
+
 sudo chgrp -R ec2-user node_modules/
 
