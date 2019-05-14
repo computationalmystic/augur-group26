@@ -120,8 +120,8 @@ let routes = [
             }
           },
               {
-            path: "lines",
-            name: "lines",
+            path: "commits",
+            name: "commits",
             components: {
               header: AugurHeader,
               tabs: Tabs,

@@ -10,7 +10,7 @@
           <li :class="{ active: (currentTab == 'git'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="git">Git</a></li>
           <li :class="{ active: (currentTab == 'overview'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="overview">Overview</a></li>
           <!-- <li :class="{ active: (currentTab == 'git'), hidden: !gitRepo }"><a href="#" @click="changeTab" data-value="git">Git</a></li> -->
-          <li :class="{ active: (currentTab == 'lines') }"><a href="#" @click="changeTab" data-value="lines">Lines</a></li>
+          <li :class="{ active: (currentTab == 'commits') }"><a href="#" @click="changeTab" data-value="commits">Commits</a></li>
           
         </ul>
       </nav>
