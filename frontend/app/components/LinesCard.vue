@@ -7,26 +7,9 @@
         <span v-bind:style="{ 'color': colors[index] }" class="repolisting"> {{ repo }} </span> 
       </h2>
     </div>
-      <div class="row">
-        <div class="col col-12" style="padding-right: 35px">
-          <grouped-bar-chart source="cdRgTpRankedCommits"
-          title="TEST: Top Repos in 2018 by Commits with Baseline Averages - Sorted"
-          field="lines"></grouped-bar-chart>
-        </div>
-        <div class="col col-6" style="padding-right: 35px">
-          <grouped-bar-chart source="cdRgTpRankedLoc"
-          title="Top Repos in 2018 by Net LoC with Baseline Averages - Sorted"
-          field="loc"></grouped-bar-chart>
-        </div>
-    </div>
     
-    <div class="row">
-        <div class="col col-12" style="padding-right: 35px">
-          <time-interval-bar-chart source="cdRepTpIntervalLocCommits"
-          title="Contributions in 2018 by Monthly Intervals with Baseline Averages"
-          field="loc"></time-interval-bar-chart>
-        </div>
-    </div>
+    
+
     
     <div class="row" style="transform: translateY(-50px) !important">
         <div class="col col-12" style="padding-right: 35px; padding-top: 50px">
