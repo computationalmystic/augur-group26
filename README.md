@@ -31,69 +31,23 @@ Dependencies
 -   [GitHub Access Token](https://github.com/settings/tokens) (no write
     access required)
 
-1. Clone the repository and boot up the VM.
+## Developer - Instructions
 
-```bash
-# on your local machine
-git clone https://github.com/chaoss/augur.git
-cd augur
-make vagrant
-```
+The directions found in this link are for installation on mac OS and amazon ec2 instance.
 
-Note: you'll probably see a fair bit of errors during this provisioning process as Augur is getting installed. Don't worry about them, most of them are harmless. *Probably.*
+[https://github.com/computationalmystic/augur-group26/blob/master/Sprint%204/developer-instructions.md](https://github.com/computationalmystic/augur-group26/blob/master/Sprint%204/developer-instructions.md)
 
-2. Log in as `root` and navigate to `/vagrant/augur`. This folder is synced with your local clone of `augur`, meaning you'll be able to use your preferred local editor and just use the VM to run augur.  
-```bash
-# inside the vagrant VM
-sudo su -
-cd /vagrant/augur
+## Current State of Group 26 Use Cases and Issues
 
-# due to vagrant weirdness, we have to manually install the python packagew (this might take a while)
-$AUGUR_PIP install --upgrade .
-```
+The following link is to inform users of the current progress of group 26's use cases and issues.
 
-3. Add your GitHub API key to the `augur.config.json` file under the
-section `GitHub`. 
+[https://github.com/computationalmystic/augur-group26/blob/master/Sprint%204/Current_State.md](https://github.com/computationalmystic/augur-group26/blob/master/Sprint%204/Current_State.md)
 
-4. Start both the backend and frontend servers with `make dev`.
+## Expected User Deliverable Product
 
-```bash
-make dev
-```
+[http://ec2-13-58-174-130.us-east-2.compute.amazonaws.com:3333/single/github.com%2Ftwitter%2Ftwemoji/commits#](http://ec2-13-58-174-130.us-east-2.compute.amazonaws.com:3333/single/github.com%2Ftwitter%2Ftwemoji/commits#)
 
-5. When you're done working in the VM, type `exit` twice: once to log out of `root`, and another to log out of the VM. Don't forget to shut down the VM with `vagrant halt`.
-
-If you're interested in adding a new plugin, data source, or metric, check out the [backend development guide](http://augur.augurlabs.io/static/docs/dev-guide/3-backend.html). If new visualizations are more your speed, you'll want the [frontend development guide](http://augur.augurlabs.io/static/docs/dev-guide/4-frontend.html\).
-
-### TL;DR
-
-```bash
-# on your local machine
-
-# using your Git client: 
-git clone https://github.com/chaoss/augur.git
-
-# using Command Prompt
-cd augur
-vagrant up
-vagrant ssh
-
-# inside the vagrant VM
-sudo su -
-cd /vagrant/augur
-
-# due to vagrant weirdness, we have to manually install the python packages
-$AUGUR_PIP install --upgrade .
-
-# add your GitHub personal access token to augur.config.json
-
-# start the frontend and backend servers
-make dev
-# full steam ahead!
-```
-
-### Local Installation
-To contribute to our code base routinely, we recommended that developers configure Augur on their local workstations. Start [here](http://augur.augurlabs.io/static/docs/dev-guide/1-overview.html) to get a primer on the project, or jump straight into our [local installation instructions](http://augur.augurlabs.io/static/docs/dev-guide/2-install.html) for developers.
+Group 26 added a new tab to the original Augur program called Commits. In lines you will find two new and functional graphs. The first graph, is a tick graph. It shows the number of commit by the 10 authors as Percentage in year month or continuous. The second graph, is a zoomable graph. It shows the commits of code added by the top 10 authors. Its zoom function works by hovering over the graph and scrolling up or down. Giving the user a way to find exact values in the graph that spans a large difference in values.
 
 ## Guidelines
 To contribute to Augur, please check out our [development guide](http://augur.augurlabs.io/static/docs/dev-guide/1-overview.html) and [notes on making contributions](CONTRIBUTING.md). Also, please note our [code of conduct](CODE_OF_CONDUCT.md). We want Augur to be a welcoming development community that is open to everyone. 
